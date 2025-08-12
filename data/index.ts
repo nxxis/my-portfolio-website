@@ -125,7 +125,7 @@ export const education = [
     ],
   },
   {
-    degree: 'Bachelor of Science in Computer Engineering',
+    degree: 'Bachelor of Science in Computer Science',
     institution: 'Kathmandu University',
     period: '2018 – 2023',
     location: 'Dhulikhel, Nepal',
