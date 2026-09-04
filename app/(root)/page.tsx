@@ -10,32 +10,37 @@ import Projects from '../_components/projects';
 import Contact from '../_components/contact';
 import Footer from '../_components/footer';
 
+// Full-height on arrival, but never trapped: content taller than one
+// screen (Journey's timeline, Experience's cards) simply scrolls past.
+const SECTION_CLASS =
+  'scroll-mt-24 snap-start min-h-[calc(100vh-4rem)] lg:min-h-screen flex flex-col justify-center';
+
 export default function Portfolio() {
   return (
     <div className="min-h-screen w-full">
       <Header />
       <div className="container mx-auto px-3 lg:px-8 xl:px-12 lg:flex lg:gap-12 xl:gap-20">
         <Sidebar />
-        <main className="min-w-0 flex-1 py-8 lg:py-16 pb-24 lg:pb-16 space-y-20 sm:space-y-28">
-          <section id="about" className="scroll-mt-24 snap-start">
+        <main className="min-w-0 flex-1 pb-24 lg:pb-0">
+          <section id="about" className={SECTION_CLASS}>
             <About />
           </section>
-          <section id="journey" className="scroll-mt-24 snap-start">
+          <section id="journey" className={SECTION_CLASS}>
             <Journey />
           </section>
-          <section id="experience" className="scroll-mt-24 snap-start">
+          <section id="experience" className={SECTION_CLASS}>
             <Experience />
           </section>
-          <section id="education" className="scroll-mt-24 snap-start">
+          <section id="education" className={SECTION_CLASS}>
             <Education />
           </section>
-          <section id="publications" className="scroll-mt-24 snap-start">
+          <section id="publications" className={SECTION_CLASS}>
             <Publications />
           </section>
-          <section id="projects" className="scroll-mt-24 snap-start">
+          <section id="projects" className={SECTION_CLASS}>
             <Projects />
           </section>
-          <section id="contact" className="scroll-mt-24 snap-start">
+          <section id="contact" className={SECTION_CLASS}>
             <Contact />
           </section>
         </main>
