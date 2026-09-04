@@ -1,100 +1,47 @@
-'use client';
-
-import { useState, useEffect } from 'react';
 import Header from '../_components/header';
+import Sidebar from '../_components/sidebar';
 import Navigation from '../_components/navigation';
-import dynamic from 'next/dynamic';
-
-import ContactSkeleton from '../_components/skeleton/Contact';
-import ExperienceSkeleton from '../_components/skeleton/experience';
-import ProjectsSkeleton from '../_components/skeleton/projects';
-import ProfileSkeleton from '../_components/skeleton/profile';
-import EducationSkeleton from '../_components/skeleton/education';
-import PublicationsSkeleton from '../_components/skeleton/publications';
-import JourneySkeleton from '../_components/skeleton/journey';
-
-const Profile = dynamic(() => import('../_components/profile'), {
-  loading: () => <ProfileSkeleton />,
-});
-const Journey = dynamic(() => import('../_components/journey'), {
-  loading: () => <JourneySkeleton />,
-});
-const Experience = dynamic(() => import('../_components/experience'), {
-  loading: () => <ExperienceSkeleton />,
-});
-const Education = dynamic(() => import('../_components/education'), {
-  loading: () => <EducationSkeleton />,
-});
-const Publications = dynamic(() => import('../_components/publications'), {
-  loading: () => <PublicationsSkeleton />,
-});
-const Projects = dynamic(() => import('../_components/projects'), {
-  loading: () => <ProjectsSkeleton />,
-});
-const Contact = dynamic(() => import('../_components/contact'), {
-  loading: () => <ContactSkeleton />,
-});
-const Footer = dynamic(() => import('../_components/footer'), {
-  loading: () => <div className="h-16 bg-card animate-pulse" />,
-});
-
-export const TABS = [
-  'profile',
-  'journey',
-  'experience',
-  'education',
-  'publications',
-  'projects',
-  'contact',
-] as const;
-
-type Tab = (typeof TABS)[number];
+import About from '../_components/about';
+import Journey from '../_components/journey';
+import Experience from '../_components/experience';
+import Education from '../_components/education';
+import Publications from '../_components/publications';
+import Projects from '../_components/projects';
+import Contact from '../_components/contact';
+import Footer from '../_components/footer';
 
 export default function Portfolio() {
-  const [activeTab, setActiveTab] = useState<Tab>('profile');
-
-  // Load tab from localStorage on mount
-  useEffect(() => {
-    const storedTab = localStorage.getItem('activeTab') as Tab | null;
-    if (storedTab && TABS.includes(storedTab)) {
-      setActiveTab(storedTab);
-    }
-  }, []);
-
-  // Save tab to localStorage on change
-  useEffect(() => {
-    localStorage.setItem('activeTab', activeTab);
-  }, [activeTab]);
-
-  const renderActiveTab = () => {
-    switch (activeTab) {
-      case 'profile':
-        return <Profile setActiveTab={setActiveTab} />;
-      case 'journey':
-        return <Journey />;
-      case 'experience':
-        return <Experience />;
-      case 'education':
-        return <Education />;
-      case 'publications':
-        return <Publications />;
-      case 'projects':
-        return <Projects />;
-      case 'contact':
-        return <Contact />;
-      default:
-        return null;
-    }
-  };
-
   return (
-    <div className="min-h-screen w-full relative">
+    <div className="min-h-screen w-full">
       <Header />
-      <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
-      <main className="container mx-auto px-3 lg:px-20 xl:px-32 py-8">
-        {renderActiveTab()}
-      </main>
+      <div className="container mx-auto px-3 lg:px-8 xl:px-12 lg:flex lg:gap-12 xl:gap-20">
+        <Sidebar />
+        <main className="min-w-0 flex-1 py-8 lg:py-16 pb-24 lg:pb-16 space-y-20 sm:space-y-28">
+          <section id="about" className="scroll-mt-24 snap-start">
+            <About />
+          </section>
+          <section id="journey" className="scroll-mt-24 snap-start">
+            <Journey />
+          </section>
+          <section id="experience" className="scroll-mt-24 snap-start">
+            <Experience />
+          </section>
+          <section id="education" className="scroll-mt-24 snap-start">
+            <Education />
+          </section>
+          <section id="publications" className="scroll-mt-24 snap-start">
+            <Publications />
+          </section>
+          <section id="projects" className="scroll-mt-24 snap-start">
+            <Projects />
+          </section>
+          <section id="contact" className="scroll-mt-24 snap-start">
+            <Contact />
+          </section>
+        </main>
+      </div>
       <Footer />
+      <Navigation />
     </div>
   );
 }

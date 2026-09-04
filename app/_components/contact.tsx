@@ -19,6 +19,7 @@ import { useForm } from 'react-hook-form';
 import { FormData } from '@/types/mail-form';
 import { toast } from 'sonner';
 import ContactCard from './ContactCard';
+import Reveal from './reveal';
 
 export default function Contact() {
   const {
@@ -48,10 +49,10 @@ export default function Contact() {
   return (
     <>
       <div className="space-y-6 mt-5 max-w-5xl gap-10 mx-auto grid grid-cols-1 md:grid-cols-[0.75fr_1fr]">
-        <div className="flex flex-col gap-10">
+        <Reveal className="flex flex-col gap-10">
           <div className="text-left">
             <p className="text-xs font-medium tracking-widest text-primary uppercase mb-2">
-              Get In Touch
+              07 — Get In Touch
             </p>
             <h2 className="text-2xl sm:text-3xl font-medium tracking-tight mb-2">
               Let&apos;s Connect
@@ -63,7 +64,7 @@ export default function Contact() {
           </div>
           {/* left side */}
           <ContactCard />
-        </div>
+        </Reveal>
 
         {isSubmitting ? (
           <Card>
@@ -73,6 +74,7 @@ export default function Contact() {
             <CardHeader></CardHeader>
           </Card>
         ) : (
+          <Reveal delay={100}>
           <Card>
             <CardHeader>
               <CardTitle className="font-medium text-xl">
@@ -163,6 +165,7 @@ export default function Contact() {
               </form>
             </CardContent>
           </Card>
+          </Reveal>
         )}
       </div>
     </>

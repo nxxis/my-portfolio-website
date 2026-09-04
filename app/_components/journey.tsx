@@ -1,15 +1,16 @@
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
-import { interests, timeline, momentGroups } from '@/data';
+import { interests, timeline } from '@/data';
+import Reveal from './reveal';
+import MomentsCarousel from './moments-carousel';
 
 export default function Journey() {
   return (
     <div className="space-y-14">
       {/* Intro */}
-      <div className="space-y-5 max-w-2xl">
+      <Reveal className="space-y-5 max-w-2xl">
         <p className="text-xs font-medium tracking-widest text-primary uppercase">
-          My Story
+          02 — My Story
         </p>
         <h2 className="text-2xl sm:text-3xl font-medium tracking-tight">
           Journey
@@ -34,20 +35,16 @@ export default function Journey() {
             );
           })}
         </div>
-      </div>
+      </Reveal>
 
       {/* Timeline */}
       <div className="relative pl-10 sm:pl-12">
         <div className="absolute left-[15px] sm:left-[17px] top-2 bottom-2 w-px bg-border" />
         <div className="space-y-10">
-          {timeline.map((item, index) => {
+          {timeline.map((item) => {
             const Icon = item.icon;
             return (
-              <div
-                key={item.title}
-                className="relative opacity-0 animate-[fade-slide-up_0.45s_ease-out_both]"
-                style={{ animationDelay: `${Math.min(index * 50, 350)}ms` }}
-              >
+              <Reveal key={item.title} className="relative">
                 <div
                   className={`absolute -left-10 sm:-left-12 top-0 flex items-center justify-center size-8 sm:size-9 rounded-full border-2 ${
                     item.kind === 'milestone'
@@ -77,14 +74,14 @@ export default function Journey() {
                 <p className="text-sm text-muted-foreground mt-1 leading-relaxed max-w-xl">
                   {item.description}
                 </p>
-              </div>
+              </Reveal>
             );
           })}
         </div>
       </div>
 
       {/* Moments */}
-      <div className="space-y-5">
+      <Reveal className="space-y-5">
         <div>
           <p className="text-xs font-medium tracking-widest text-primary uppercase mb-2">
             In Pictures
@@ -94,36 +91,8 @@ export default function Journey() {
             The story so far, in photos.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {momentGroups.map((group) => {
-            const Icon = group.icon;
-            return (
-              <Card
-                key={group.title}
-                className="overflow-hidden hover:bg-muted/60 transition-colors duration-300"
-              >
-                <CardContent className="p-4 sm:p-5 space-y-3">
-                  <div className="flex items-center gap-2">
-                    <Icon className="w-4 h-4 text-primary" />
-                    <h4 className="font-medium text-sm">{group.title}</h4>
-                  </div>
-                  <div className="grid grid-cols-3 gap-2">
-                    {group.images.map((src, i) => (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        key={src}
-                        src={src}
-                        alt={`${group.title} ${i + 1}`}
-                        className="aspect-square rounded-md object-cover w-full h-full"
-                      />
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
-      </div>
+        <MomentsCarousel />
+      </Reveal>
     </div>
   );
 }

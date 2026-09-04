@@ -1,104 +1,35 @@
 'use client';
 
-import React, { Fragment, useEffect, useState } from 'react';
-import { TABS } from '../(root)/page';
 import { cn } from '@/lib/utils';
-import { useIsMobile } from '@/hooks/use-mobile';
-import {
-  User,
-  Briefcase,
-  Folder,
-  Mail,
-  GraduationCap,
-  BookOpen,
-  Compass,
-} from 'lucide-react';
+import { SECTIONS, SECTION_IDS } from './sections';
+import { useActiveSection } from '@/hooks/use-active-section';
 
-interface NavigationProps {
-  activeTab?: (typeof TABS)[number];
-  setActiveTab: (tab: (typeof TABS)[number]) => void;
-}
-
-export default function Navigation({
-  activeTab = 'profile',
-  setActiveTab,
-}: NavigationProps) {
-  const [isMounted, setIsMounted] = useState(false);
-  const isMobile = useIsMobile();
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) return null;
-
-  const tabs = [
-    { id: 'profile', label: 'Profile', icon: <User size={16} /> },
-    { id: 'journey', label: 'Journey', icon: <Compass size={16} /> },
-    { id: 'experience', label: 'Experience', icon: <Briefcase size={16} /> },
-    {
-      id: 'education',
-      label: 'Education',
-      icon: <GraduationCap size={16} />,
-    },
-    {
-      id: 'publications',
-      label: 'Publications',
-      icon: <BookOpen size={16} />,
-    },
-    { id: 'projects', label: 'Projects', icon: <Folder size={16} /> },
-    { id: 'contact', label: 'Contact', icon: <Mail size={16} /> },
-  ] as const;
+export default function Navigation() {
+  const active = useActiveSection(SECTION_IDS);
 
   return (
-    <nav
-      className={cn(
-        'bg-card border-b border-border',
-        isMobile
-          ? 'fixed bottom-0  left-0 right-0 w-full border-t border-border shadow-lg'
-          : 'relative'
-      )}
-    >
-      <div className="container mx-auto px-4 lg:px-20 xl:px-32">
-        <div
-          className={cn(
-            'flex overflow-x-auto',
-            isMobile ? 'justify-start' : 'sm:space-x-8'
-          )}
-        >
-          {tabs.map((tab) => (
-            <Fragment key={tab.id}>
-              {isMobile ? (
-                <button
-                  onClick={() => setActiveTab(tab.id)}
-                  className={cn(
-                    'py-3 px-3 text-[10px] font-medium border-b-2 transition-colors flex flex-col gap-1 items-center justify-center flex-1 min-w-[64px] shrink-0 whitespace-nowrap m-0 cursor-pointer',
-                    activeTab === tab.id
-                      ? 'border-primary text-primary'
-                      : 'border-transparent text-muted-foreground hover:text-foreground'
-                  )}
-                  aria-label={`Navigate to ${tab.label} section`}
-                >
-                  <span>{tab.icon}</span>
-                  <span>{tab.label}</span>
-                </button>
-              ) : (
-                <button
-                  onClick={() => setActiveTab(tab.id)}
-                  className={cn(
-                    'py-4 px-2 text-sm font-medium border-b-2 transition-colors cursor-pointer',
-                    activeTab === tab.id
-                      ? 'border-primary text-primary'
-                      : 'border-transparent text-muted-foreground hover:text-foreground'
-                  )}
-                  aria-label={`Navigate to ${tab.label} section`}
-                >
-                  {tab.label}
-                </button>
+    <nav className="lg:hidden fixed bottom-0 left-0 right-0 w-full bg-card border-t border-border shadow-lg z-40">
+      <div className="flex overflow-x-auto justify-start">
+        {SECTIONS.map((section) => {
+          const Icon = section.icon;
+          const isActive = active === section.id;
+          return (
+            <a
+              key={section.id}
+              href={`#${section.id}`}
+              className={cn(
+                'py-3 px-3 text-[10px] font-medium border-b-2 transition-colors flex flex-col gap-1 items-center justify-center flex-1 min-w-[64px] shrink-0 whitespace-nowrap',
+                isActive
+                  ? 'border-primary text-primary'
+                  : 'border-transparent text-muted-foreground hover:text-foreground'
               )}
-            </Fragment>
-          ))}
-        </div>
+              aria-label={`Go to ${section.label} section`}
+            >
+              <Icon size={16} />
+              <span>{section.label}</span>
+            </a>
+          );
+        })}
       </div>
     </nav>
   );

@@ -5,13 +5,8 @@ import { cn } from '@/lib/utils';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import { TABS } from '../(root)/page';
 
-interface HeroProps {
-  setActiveTab: (tab: (typeof TABS)[number]) => void;
-}
-
-export default function Hero({ setActiveTab }: HeroProps) {
+export default function Hero() {
   const { resolvedTheme } = useTheme();
   const [isMounted, setIsMounted] = useState(false);
 
@@ -22,7 +17,7 @@ export default function Hero({ setActiveTab }: HeroProps) {
   if (!isMounted) {
     // Skeleton fallback for hydration-safe UI
     return (
-      <div className="sm:hidden border-b border-border pb-8 px-2 py-4 lg:px-20 xl:px-32 mb-6">
+      <div className="lg:hidden border-b border-border pb-8 px-2 py-4 mb-6">
         <div className="flex items-center justify-between gap-1 pt-5 animate-pulse">
           <div className="flex space-x-4 gap-4 flex-col">
             <div className="size-20 rounded-lg bg-muted/40" />
@@ -41,7 +36,7 @@ export default function Hero({ setActiveTab }: HeroProps) {
   }
 
   return (
-    <div className="sm:hidden border-b border-border pb-8 px-2 py-4 lg:px-20 xl:px-32 mb-6">
+    <div className="lg:hidden border-b border-border pb-8 px-2 py-4 mb-6">
       <div className="flex items-center justify-between gap-1 pt-5">
         <div className="flex space-x-4 gap-4 flex-col">
           <div className="relative">
@@ -89,15 +84,15 @@ export default function Hero({ setActiveTab }: HeroProps) {
                 Download Resume
               </Button>
             </a>
-            <Button
-              variant="outline"
-              size="sm"
-              className="rounded-full text-muted-foreground"
-              onClick={() => setActiveTab('contact')}
-              aria-label="Contact Me"
-            >
-              Contact Me
-            </Button>
+            <a href="#contact" aria-label="Contact Me">
+              <Button
+                variant="outline"
+                size="sm"
+                className="rounded-full text-muted-foreground"
+              >
+                Contact Me
+              </Button>
+            </a>
           </div>
         </div>
       </div>

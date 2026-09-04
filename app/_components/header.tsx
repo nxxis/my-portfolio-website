@@ -37,7 +37,7 @@ export default function Header() {
   if (!isMounted) return <HeaderSkeleton />;
 
   return (
-    <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-md border-b border-border">
+    <header className="lg:hidden sticky top-0 z-40 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4 py-4 lg:px-20 xl:px-32">
         <div className="flex items-center justify-between gap-1">
           <div className="flex items-center space-x-4">
