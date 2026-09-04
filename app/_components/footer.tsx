@@ -27,7 +27,7 @@ export default function Footer() {
             </Button>
             <Button variant="ghost" size="icon" asChild>
               <a
-                href="https://linkedin.com/nxxis"
+                href="https://linkedin.com/in/nxxis"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn Profile"

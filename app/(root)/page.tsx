@@ -10,6 +10,7 @@ import ExperienceSkeleton from '../_components/skeleton/experience';
 import ProjectsSkeleton from '../_components/skeleton/projects';
 import ProfileSkeleton from '../_components/skeleton/profile';
 import EducationSkeleton from '../_components/skeleton/education';
+import PublicationsSkeleton from '../_components/skeleton/publications';
 
 const Profile = dynamic(() => import('../_components/profile'), {
   loading: () => <ProfileSkeleton />,
@@ -19,6 +20,9 @@ const Experience = dynamic(() => import('../_components/experience'), {
 });
 const Education = dynamic(() => import('../_components/education'), {
   loading: () => <EducationSkeleton />,
+});
+const Publications = dynamic(() => import('../_components/publications'), {
+  loading: () => <PublicationsSkeleton />,
 });
 const Projects = dynamic(() => import('../_components/projects'), {
   loading: () => <ProjectsSkeleton />,
@@ -34,6 +38,7 @@ export const TABS = [
   'profile',
   'experience',
   'education',
+  'publications',
   'projects',
   'contact',
 ] as const;
@@ -64,6 +69,8 @@ export default function Portfolio() {
         return <Experience />;
       case 'education':
         return <Education />;
+      case 'publications':
+        return <Publications />;
       case 'projects':
         return <Projects />;
       case 'contact':

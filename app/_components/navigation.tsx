@@ -4,7 +4,14 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { TABS } from '../(root)/page';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { User, Briefcase, Folder, Mail } from 'lucide-react';
+import {
+  User,
+  Briefcase,
+  Folder,
+  Mail,
+  GraduationCap,
+  BookOpen,
+} from 'lucide-react';
 
 interface NavigationProps {
   activeTab?: (typeof TABS)[number];
@@ -27,10 +34,18 @@ export default function Navigation({
   const tabs = [
     { id: 'profile', label: 'Profile', icon: <User size={16} /> },
     { id: 'experience', label: 'Experience', icon: <Briefcase size={16} /> },
-    { id: 'education', label: 'Education', icon: <Mail size={16} /> },
+    {
+      id: 'education',
+      label: 'Education',
+      icon: <GraduationCap size={16} />,
+    },
+    {
+      id: 'publications',
+      label: 'Publications',
+      icon: <BookOpen size={16} />,
+    },
     { id: 'projects', label: 'Projects', icon: <Folder size={16} /> },
     { id: 'contact', label: 'Contact', icon: <Mail size={16} /> },
-    ,
   ] as const;
 
   return (
@@ -45,8 +60,8 @@ export default function Navigation({
       <div className="container mx-auto px-4 lg:px-20 xl:px-32">
         <div
           className={cn(
-            'sm:flex space-x-2 sm:space-x-8 overflow-x-auto',
-            isMobile && 'flex justify-between'
+            'flex overflow-x-auto',
+            isMobile ? 'justify-start' : 'sm:space-x-8'
           )}
         >
           {tabs.map((tab) => (
@@ -55,7 +70,7 @@ export default function Navigation({
                 <button
                   onClick={() => setActiveTab(tab.id)}
                   className={cn(
-                    'py-4 px-2 text-[10px] font-medium border-b-2 transition-colors flex flex-col gap-1 items-center justify-between w-full m-0 cursor-pointer',
+                    'py-3 px-3 text-[10px] font-medium border-b-2 transition-colors flex flex-col gap-1 items-center justify-center flex-1 min-w-[64px] shrink-0 whitespace-nowrap m-0 cursor-pointer',
                     activeTab === tab.id
                       ? 'border-primary text-primary'
                       : 'border-transparent text-muted-foreground hover:text-foreground'

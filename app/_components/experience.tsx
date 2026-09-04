@@ -22,7 +22,7 @@ export default function Experience() {
 
         <div className="space-y-6">
           {experience.map((job, index) => (
-            <Card key={index}>
+            <Card key={index} className="hover:bg-muted/60">
               <CardHeader>
                 <div className="flex justify-between flex-col sm:flex-row items-start gap-1">
                   <div>

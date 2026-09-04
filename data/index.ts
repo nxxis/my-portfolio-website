@@ -60,29 +60,17 @@ export const projects = [
 
 export const experience = [
   {
-    title: 'Graduate Mentor (CEAMLS)',
+    title: 'Graduate Mentor, CEAMLS',
     company: 'Morgan State University',
-    period: 'May 2025 – Aug 2025',
+    period: 'Summer 2025 & 2026',
     location: 'Baltimore, MD',
     description:
-      'Led a multimodal ECG classification project and guided undergraduates on feature extraction and model fusion, focusing on performance and interpretability.',
+      'Led interdisciplinary undergraduate research teams building Python/TensorFlow healthcare AI systems for the Center for Equitable Artificial Intelligence and Machine Learning Systems (CEAMLS), providing technical direction on model design, experimentation, code quality, and research methodology.',
     achievements: [
-      'Achieved 90%+ model accuracy across 1D-CNN, Transformer, and 2D-CNN',
-      'Improved ensemble performance and interpretability',
-      'Presented Grad-CAM outputs and optimized preprocessing for fairness',
-    ],
-  },
-  {
-    title: 'Research Assistant',
-    company: 'Morgan State University',
-    period: 'Sep 2024 – May 2025',
-    location: 'Baltimore, MD',
-    description:
-      'Built interpretable time-series predictors on NIH Chest X-rays using a CNN–Transformer pipeline with SHAP/Grad-CAM.',
-    achievements: [
-      'AUC 0.89 and PR-AUC 0.31 on temporal forecasting',
-      'Designed CNN–Transformer pipeline for multi-label findings',
-      'Delivered clinician-facing explanations via SHAP/Grad-CAM',
+      'Built multimodal ECG classification pipelines using 1D-CNN, Transformer, and 2D-CNN architectures, achieving 90%+ accuracy',
+      'Improved ensemble performance by 14% through time-, frequency-, and time-frequency features',
+      'Automated preprocessing, training, and evaluation workflows with Python, NumPy, and TensorFlow, reducing GPU training time by 30%',
+      'Implemented fairness, Grad-CAM, and robustness analyses for clinician-facing interpretability',
     ],
   },
   {
@@ -91,11 +79,12 @@ export const experience = [
     period: 'Jul 2023 – Aug 2024',
     location: 'Lalitpur, Nepal',
     description:
-      'Developed iOS features in SwiftUI/UIKit and backend GraphQL APIs with NestJS to improve UX, security, and performance.',
+      'Designed, tested, deployed, and maintained secure authentication flows and GraphQL APIs across mobile and administrative applications.',
     achievements: [
-      'Integrated OTP/token auth and UX alerts/navigation',
-      'Google Calendar integration increased user experience by 63%',
-      'GraphQL APIs improved data performance by 37%',
+      'Designed secure login, OTP, and JWT auth flows in SwiftUI, improving login success by 40% and user satisfaction by 63%',
+      'Developed TypeScript/NestJS GraphQL APIs and optimized data queries, improving retrieval speed by 37%',
+      'Integrated the Google Calendar API for 1K+ active users, improving scheduling efficiency and engagement',
+      'Collaborated with product and engineering on debugging, code reviews, and releases, reducing production bug reports by 25%',
     ],
   },
   {
@@ -104,22 +93,74 @@ export const experience = [
     period: 'Apr 2023 – Jul 2023',
     location: 'Lalitpur, Nepal',
     description:
-      'Built iOS UIs with SwiftUI/UIKit and contributed Node.js/Express backend features while ramping up on modern dev practices.',
+      'Developed iOS applications in SwiftUI/UIKit and contributed Node.js/Express backend services while ramping up on modern engineering practices.',
     achievements: [
-      'Shipped SwiftUI/UIKit interfaces for production apps',
-      'Implemented backend features in Node.js/Express',
-      'Recognised by manager for fast learning and research',
+      'Built iOS apps with SwiftUI, UIKit, and MVVM, increasing in-app session length by 18%',
+      'Built and optimized REST/GraphQL backend services with Node.js and Express, improving API response time by 22%',
+      'Implemented real-time notification workflows with WebSockets, increasing engagement by 13%',
     ],
+  },
+];
+
+export const publications = [
+  {
+    title: 'Trust and Transparency: Making AI Explainable in Healthcare',
+    venue: 'Springer Nature Switzerland (International)',
+    status: 'Accepted',
+    year: '2026',
+    link: '#',
+  },
+  {
+    title:
+      'Interpretable Time-Series Deep Learning for Monitoring Disease Progression in Chest Radiography',
+    venue: 'IEEE eIT 2026',
+    status: 'Accepted',
+    year: '2026',
+    link: '#',
+  },
+  {
+    title:
+      'Cross-Domain Generalization and Fairness in Skin Lesion Classification: An Empirical Study of Architectural Robustness under Human-Centric Constraints',
+    venue: 'IEEE SMC 2026',
+    status: 'Accepted',
+    year: '2026',
+    link: '#',
+  },
+  {
+    title:
+      'Predictive Stability Versus Fairness Instability in Multi-Label ECG Classification: A Multi-Seed, Cross-Institutional Analysis',
+    venue: 'IEEE JBHI 2026',
+    status: 'In Progress',
+    year: '2026',
+    link: '#',
+  },
+  {
+    title:
+      'CITE-ODE: Continuous-Time Evidential Modeling for Selective Prediction under Structured Missingness in ICU Time Series',
+    venue: 'IEEE JBHI 2026',
+    status: 'In Progress',
+    year: '2026',
+    link: '#',
   },
 ];
 export const education = [
   {
+    degree: 'Doctor of Philosophy (Ph.D.) in Advanced Computing',
+    institution: 'Morgan State University',
+    period: 'Expected May 2029',
+    location: 'Baltimore, MD, USA',
+    description:
+      'Continuing research in equitable AI and machine learning systems for healthcare applications.',
+    highlights: [] as string[],
+  },
+  {
     degree: 'Master of Science in Advanced Computing',
     institution: 'Morgan State University',
-    period: '2024 – 2026 (Expected)',
+    period: 'Aug 2024 – May 2026',
     location: 'Baltimore, MD, USA',
     description: 'Focusing on AI, deep learning, and medical image analysis.',
     highlights: [
+      'Relevant Coursework: Design and Analysis of Algorithms, Software Engineering, Cloud Computing',
       'Research Assistant under CEAMLS (Center for Equitable Artificial Intelligence and Machine Learning Systems)',
       'Presented at the National Symposium on Equitable AI (2025)',
     ],
