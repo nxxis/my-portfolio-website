@@ -11,7 +11,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-card border-t border-border mt-16">
-      <div className="container mx-auto px-4 py-8 lg:px-20 xl:px-32">
+      <div className="container mx-auto px-4 pt-8 pb-[calc(6rem+env(safe-area-inset-bottom))] sm:pb-8 lg:px-20 xl:px-32">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="text-center md:text-left mb-4 md:mb-0">
             <p className="text-muted-foreground">

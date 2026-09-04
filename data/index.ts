@@ -360,55 +360,16 @@ export const timeline: {
     kind: 'milestone',
   },
   {
-    year: { en: 'Grad school', ne: 'स्नातकोत्तर अवधि' },
+    year: { en: '2025', ne: '२०२५' },
     title: {
       en: 'AUC Data Science Initiative — 3rd Place',
       ne: 'AUC Data Science Initiative — तेस्रो स्थान',
     },
     description: {
-      en: 'Placed 3rd with the Mastercard Center for Inclusive Growth, building models to analyze financial inclusion disparities across demographic groups.',
-      ne: 'Mastercard Center for Inclusive Growth सँग तेस्रो स्थानमा रहें, जनसांख्यिकीय समूहहरूमा वित्तीय समावेशीता असमानता विश्लेषण गर्न मोडेल निर्माण गर्दै।',
+      en: 'Placed 3rd in Atlanta with the Mastercard Center for Inclusive Growth, building models to analyze financial inclusion disparities across demographic groups.',
+      ne: 'एट्लान्टामा Mastercard Center for Inclusive Growth सँग तेस्रो स्थानमा रहें, जनसांख्यिकीय समूहहरूमा वित्तीय समावेशीता असमानता विश्लेषण गर्न मोडेल निर्माण गर्दै।',
     },
     icon: Trophy,
-    kind: 'achievement',
-  },
-  {
-    year: { en: 'Grad school', ne: 'स्नातकोत्तर अवधि' },
-    title: {
-      en: 'Best Spotlight Video Award',
-      ne: 'उत्कृष्ट स्पटलाइट भिडियो पुरस्कार',
-    },
-    description: {
-      en: 'Recognized with the CEAMLS research team for the best spotlight video presenting our healthcare AI project.',
-      ne: 'हाम्रो स्वास्थ्य AI परियोजना प्रस्तुत गर्ने उत्कृष्ट स्पटलाइट भिडियोका लागि CEAMLS अनुसन्धान टोलीसँग सम्मानित भएँ।',
-    },
-    icon: Video,
-    kind: 'achievement',
-  },
-  {
-    year: { en: '2025', ne: '२०२५' },
-    title: {
-      en: "People's Choice Award, NSEA",
-      ne: 'जनताको छनोट पुरस्कार, NSEA',
-    },
-    description: {
-      en: "Won the People's Choice Award at the National Symposium on Equitable AI for research presented under CEAMLS.",
-      ne: 'CEAMLS अन्तर्गत प्रस्तुत गरिएको अनुसन्धानका लागि National Symposium on Equitable AI मा जनताको छनोट पुरस्कार जितें।',
-    },
-    icon: Presentation,
-    kind: 'achievement',
-  },
-  {
-    year: { en: '2025', ne: '२०२५' },
-    title: {
-      en: 'NSEA Hackathon Winner',
-      ne: 'NSEA ह्याकाथन विजेता',
-    },
-    description: {
-      en: 'Built ReadAloud with my team: an offline AI tool that turns a short reading sample into a full literacy report for teachers, with every AI call overridable by the teacher. Took first place at the NSEA hackathon.',
-      ne: 'मेरो टोलीसँग ReadAloud निर्माण गरें: एउटा अफलाइन AI उपकरण जसले छोटो पढाइ नमूनालाई शिक्षकहरूका लागि पूर्ण साक्षरता रिपोर्टमा बदल्छ, जहाँ हरेक AI निर्णय शिक्षकले नै अन्तिम रूपमा तय गर्न सक्छन्। NSEA ह्याकाथनमा प्रथम स्थान हासिल गरें।',
-    },
-    icon: Rocket,
     kind: 'achievement',
   },
   {
@@ -422,6 +383,45 @@ export const timeline: {
       ne: 'मिडिया विशेषज्ञको रूपमा निरन्तर नेतृत्व र संगठनात्मक प्रभावका लागि STAR Scholars Network द्वारा सम्मानित भएँ।',
     },
     icon: Medal,
+    kind: 'achievement',
+  },
+  {
+    year: { en: '2026', ne: '२०२६' },
+    title: {
+      en: 'Best Spotlight Video Award, NSEA',
+      ne: 'उत्कृष्ट स्पटलाइट भिडियो पुरस्कार, NSEA',
+    },
+    description: {
+      en: 'Recognized with the CEAMLS research team at NSEA for the best spotlight video presenting our healthcare AI project.',
+      ne: 'हाम्रो स्वास्थ्य AI परियोजना प्रस्तुत गर्ने उत्कृष्ट स्पटलाइट भिडियोका लागि NSEA मा CEAMLS अनुसन्धान टोलीसँग सम्मानित भएँ।',
+    },
+    icon: Video,
+    kind: 'achievement',
+  },
+  {
+    year: { en: '2026', ne: '२०२६' },
+    title: {
+      en: "People's Choice Award, NSEA",
+      ne: 'जनताको छनोट पुरस्कार, NSEA',
+    },
+    description: {
+      en: "Won the People's Choice Award at the National Symposium on Equitable AI for research presented under CEAMLS.",
+      ne: 'CEAMLS अन्तर्गत प्रस्तुत गरिएको अनुसन्धानका लागि National Symposium on Equitable AI मा जनताको छनोट पुरस्कार जितें।',
+    },
+    icon: Presentation,
+    kind: 'achievement',
+  },
+  {
+    year: { en: '2026', ne: '२०२६' },
+    title: {
+      en: 'NSEA Hackathon Winner',
+      ne: 'NSEA ह्याकाथन विजेता',
+    },
+    description: {
+      en: 'Built ReadAloud with my team: an offline AI tool that turns a short reading sample into a full literacy report for teachers, with every AI call overridable by the teacher. Took first place at the NSEA hackathon.',
+      ne: 'मेरो टोलीसँग ReadAloud निर्माण गरें: एउटा अफलाइन AI उपकरण जसले छोटो पढाइ नमूनालाई शिक्षकहरूका लागि पूर्ण साक्षरता रिपोर्टमा बदल्छ, जहाँ हरेक AI निर्णय शिक्षकले नै अन्तिम रूपमा तय गर्न सक्छन्। NSEA ह्याकाथनमा प्रथम स्थान हासिल गरें।',
+    },
+    icon: Rocket,
     kind: 'achievement',
   },
   {
