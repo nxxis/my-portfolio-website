@@ -17,12 +17,12 @@ export default function Hero() {
   if (!isMounted) {
     // Skeleton fallback for hydration-safe UI
     return (
-      <div className="lg:hidden border-b border-border pb-8 px-2 py-4 mb-6">
+      <div className="border-b border-border pb-8 px-2 py-4 mb-6">
         <div className="flex items-center justify-between gap-1 pt-5 animate-pulse">
           <div className="flex space-x-4 gap-4 flex-col">
-            <div className="size-20 rounded-lg bg-muted/40" />
+            <div className="size-20 sm:size-28 rounded-lg bg-muted/40" />
             <div>
-              <div className="h-5 w-32 bg-muted/40 rounded mb-2" />
+              <div className="h-5 sm:h-8 w-32 sm:w-48 bg-muted/40 rounded mb-2" />
               <div className="h-4 w-52 bg-muted/40 rounded" />
             </div>
             <div className="flex gap-2">
@@ -36,13 +36,13 @@ export default function Hero() {
   }
 
   return (
-    <div className="lg:hidden border-b border-border pb-8 px-2 py-4 mb-6">
+    <div className="border-b border-border pb-8 px-2 py-4 mb-6">
       <div className="flex items-center justify-between gap-1 pt-5">
         <div className="flex space-x-4 gap-4 flex-col">
           <div className="relative">
             <div
               className={cn(
-                'size-20 rounded-lg bg-gradient-to-br flex items-center justify-center relative outline outline-offset-[3px] outline-border',
+                'size-20 sm:size-28 rounded-lg bg-gradient-to-br flex items-center justify-center relative outline outline-offset-[3px] outline-border',
                 resolvedTheme === 'dark'
                   ? 'from-zinc-600 to-zinc-900'
                   : 'from-zinc-50 to-zinc-200'
@@ -51,8 +51,8 @@ export default function Hero() {
               <Image
                 src="/avatar-p.png"
                 alt="Profile photo"
-                height={80}
-                width={80}
+                height={112}
+                width={112}
                 className="absolute h-full w-full top-0 left-0 rounded-lg object-cover saturate-100"
                 aria-label="Profile photo of Sudip Sharma"
                 quality={100}
@@ -60,16 +60,21 @@ export default function Hero() {
             </div>
           </div>
           <div>
-            <h1 className="text-xl font-medium flex items-center gap-2">
+            <h1 className="text-xl sm:text-3xl font-semibold tracking-tight flex items-center gap-2">
               Sudip Sharma
-              <div className="size-1.5 animate-pulse relative after:content-[''] after:absolute flex items-center justify-center after:h-full after:w-full after:bg-green-400 after:rounded-full after:animate-ping rounded-full bg-primary"></div>
+              <div className="size-1.5 sm:size-2.5 animate-pulse relative after:content-[''] after:absolute flex items-center justify-center after:h-full after:w-full after:bg-green-400 after:rounded-full after:animate-ping rounded-full bg-primary"></div>
             </h1>
-            <p className="text-muted-foreground text-sm">
-              Software Engineer and Researcher
+            <p className="text-muted-foreground text-sm sm:text-lg mt-1">
+              Software Engineer &amp; Researcher
             </p>
           </div>
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-xl">
+            I build interpretable AI for healthcare and turn it into
+            scalable, elegant products — from ML pipelines to production iOS
+            and web apps.
+          </p>
 
-          <div className="flex justify-between gap-1 items-center">
+          <div className="flex justify-start gap-2 items-center">
             <a
               href="/Sudip-Sharma--Resume.pdf"
               target="_blank"

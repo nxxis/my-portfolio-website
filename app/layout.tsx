@@ -5,6 +5,7 @@ import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from 'sonner';
 import { Analytics } from '@vercel/analytics/next';
+import PageLoader from './_components/page-loader';
 
 const inter = Montserrat({ subsets: ['latin'] });
 
@@ -64,6 +65,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <PageLoader />
           <Analytics />
           <Toaster richColors />
         </ThemeProvider>

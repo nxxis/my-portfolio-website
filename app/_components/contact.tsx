@@ -48,7 +48,7 @@ export default function Contact() {
 
   return (
     <>
-      <div className="space-y-6 mt-5 max-w-5xl gap-10 mx-auto grid grid-cols-1 md:grid-cols-[0.75fr_1fr]">
+      <div className="space-y-6 mt-5 gap-10 grid grid-cols-1 md:grid-cols-[0.75fr_1fr]">
         <Reveal className="flex flex-col gap-10">
           <div className="text-left">
             <p className="text-xs font-medium tracking-widest text-primary uppercase mb-2">
