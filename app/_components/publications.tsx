@@ -14,7 +14,12 @@ export default function Publications() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-medium mb-2">Publications</h2>
+        <p className="text-xs font-medium tracking-widest text-primary uppercase mb-2">
+          Research
+        </p>
+        <h2 className="text-2xl sm:text-3xl font-medium tracking-tight mb-2">
+          Publications
+        </h2>
         <p className="text-muted-foreground text-sm">
           Peer-reviewed research and work in progress
         </p>

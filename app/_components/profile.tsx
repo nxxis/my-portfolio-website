@@ -25,6 +25,9 @@ export default function Profile({ setActiveTab }: ProfileProps) {
         {/* Bio Section */}
         <Card>
           <CardHeader>
+            <p className="text-xs font-medium tracking-widest text-primary uppercase mb-1">
+              About
+            </p>
             <CardTitle className="text-xl">Bio</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -41,7 +44,8 @@ export default function Profile({ setActiveTab }: ProfileProps) {
               When I’m not coding, I mentor students, organise tech and
               community events, write practical tech pieces, and explore the
               latest web technologies. Offline, you’ll find me hiking or
-              trekking, or playing guitar.
+              trekking, out in nature with a camera, or playing guitar and
+              singing.
             </p>
             <div className="flex gap-3 sm:gap-0 sm:items-center flex-col sm:flex-row  sm:space-x-4 text-sm text-muted-foreground">
               <div className="flex items-center">
@@ -73,6 +77,9 @@ export default function Profile({ setActiveTab }: ProfileProps) {
         {/* Skills Section */}
         <Card>
           <CardHeader>
+            <p className="text-xs font-medium tracking-widest text-primary uppercase mb-1">
+              Toolkit
+            </p>
             <CardTitle className="text-xl">Skills & Technologies</CardTitle>
             <CardDescription>
               Technologies I work with regularly

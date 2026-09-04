@@ -11,9 +11,13 @@ import ProjectsSkeleton from '../_components/skeleton/projects';
 import ProfileSkeleton from '../_components/skeleton/profile';
 import EducationSkeleton from '../_components/skeleton/education';
 import PublicationsSkeleton from '../_components/skeleton/publications';
+import JourneySkeleton from '../_components/skeleton/journey';
 
 const Profile = dynamic(() => import('../_components/profile'), {
   loading: () => <ProfileSkeleton />,
+});
+const Journey = dynamic(() => import('../_components/journey'), {
+  loading: () => <JourneySkeleton />,
 });
 const Experience = dynamic(() => import('../_components/experience'), {
   loading: () => <ExperienceSkeleton />,
@@ -36,6 +40,7 @@ const Footer = dynamic(() => import('../_components/footer'), {
 
 export const TABS = [
   'profile',
+  'journey',
   'experience',
   'education',
   'publications',
@@ -65,6 +70,8 @@ export default function Portfolio() {
     switch (activeTab) {
       case 'profile':
         return <Profile setActiveTab={setActiveTab} />;
+      case 'journey':
+        return <Journey />;
       case 'experience':
         return <Experience />;
       case 'education':

@@ -16,7 +16,12 @@ export default function Education() {
     <div className="space-y-6">
       {/* Section heading */}
       <div>
-        <h2 className="text-2xl font-medium mb-2">Education</h2>
+        <p className="text-xs font-medium tracking-widest text-primary uppercase mb-2">
+          Academics
+        </p>
+        <h2 className="text-2xl sm:text-3xl font-medium tracking-tight mb-2">
+          Education
+        </h2>
         <p className="text-muted-foreground text-sm">
           My academic background and qualifications
         </p>

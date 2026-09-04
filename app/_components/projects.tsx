@@ -23,7 +23,12 @@ export default function Projects() {
     <>
       <div className="space-y-6">
         <div>
-          <h2 className="text-2xl font-medium mb-2">Featured Projects</h2>
+          <p className="text-xs font-medium tracking-widest text-primary uppercase mb-2">
+            Work
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-medium tracking-tight mb-2">
+            Featured Projects
+          </h2>
           <p className="text-muted-foreground text-sm">
             Some of my recent work and side projects
           </p>

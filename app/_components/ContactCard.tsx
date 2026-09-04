@@ -15,7 +15,7 @@ const contactItems = [
     icon: <Linkedin className="size-7 text-muted-foreground" />,
     title: 'LinkedIn',
     value: '@nxxis',
-    link: 'https://linkedin.com/in/nxxis',
+    link: 'https://www.linkedin.com/in/nxxis/',
   },
   {
     icon: <Github className="size-7 text-muted-foreground" />,

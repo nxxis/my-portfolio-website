@@ -50,9 +50,15 @@ export default function Contact() {
       <div className="space-y-6 mt-5 max-w-5xl gap-10 mx-auto grid grid-cols-1 md:grid-cols-[0.75fr_1fr]">
         <div className="flex flex-col gap-10">
           <div className="text-left">
-            <h2 className="text-3xl font-medium mb-2">Get In Touch</h2>
+            <p className="text-xs font-medium tracking-widest text-primary uppercase mb-2">
+              Get In Touch
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-medium tracking-tight mb-2">
+              Let&apos;s Connect
+            </h2>
             <p className="text-muted-foreground">
-              I'm always interested in new opportunities and collaborations
+              I&apos;m always interested in new opportunities and
+              collaborations
             </p>
           </div>
           {/* left side */}
@@ -73,7 +79,7 @@ export default function Contact() {
                 Send me a message
               </CardTitle>
               <CardDescription>
-                Fill out the form below and I'll get back to you as soon as
+                Fill out the form below and I&apos;ll get back to you as soon as
                 possible
               </CardDescription>
             </CardHeader>

@@ -11,6 +11,7 @@ import {
   Mail,
   GraduationCap,
   BookOpen,
+  Compass,
 } from 'lucide-react';
 
 interface NavigationProps {
@@ -33,6 +34,7 @@ export default function Navigation({
 
   const tabs = [
     { id: 'profile', label: 'Profile', icon: <User size={16} /> },
+    { id: 'journey', label: 'Journey', icon: <Compass size={16} /> },
     { id: 'experience', label: 'Experience', icon: <Briefcase size={16} /> },
     {
       id: 'education',
