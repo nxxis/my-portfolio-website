@@ -10,7 +10,10 @@ export function MobileNav() {
   const { lang } = useLanguage();
 
   return (
-    <nav className="sm:hidden fixed bottom-0 left-0 right-0 w-full bg-card border-t border-border shadow-lg z-40">
+    <nav
+      className="sm:hidden fixed bottom-0 left-0 right-0 w-full bg-card border-t border-border shadow-lg z-40"
+      style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+    >
       <div className="flex overflow-x-auto justify-start">
         {SECTIONS.map((section) => {
           const Icon = section.icon;

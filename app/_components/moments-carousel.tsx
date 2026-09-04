@@ -41,10 +41,10 @@ export default function MomentsCarousel() {
   const [autoplayEnabled, setAutoplayEnabled] = React.useState(false);
 
   const autoplay = React.useRef(
-    // No stopOnMouseEnter: on a page you scroll through (not a dedicated
-    // gallery), the cursor naturally ends up resting over the carousel as
-    // it scrolls into view, which would otherwise pause it immediately.
-    Autoplay({ delay: 4000, stopOnInteraction: true })
+    // stopOnInteraction: false is required for stopOnMouseEnter's
+    // mouseleave handler to actually resume playback — otherwise hovering
+    // once would pause it permanently.
+    Autoplay({ delay: 4000, stopOnMouseEnter: true, stopOnInteraction: false })
   );
   const plugins = React.useMemo(
     () => (autoplayEnabled ? [autoplay.current] : NO_PLUGINS),

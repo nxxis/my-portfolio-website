@@ -12,15 +12,18 @@ import Footer from '../_components/footer';
 
 // Full-height on arrival, but never trapped: content taller than one
 // screen (Journey's timeline, Experience's cards) simply scrolls past.
+// Uses dvh (not vh) because mobile Safari's vh is measured against the
+// toolbar-collapsed viewport — sizing against it traps content behind
+// the toolbar when it re-shows at the scroll bounds.
 const SECTION_CLASS =
-  'scroll-mt-20 min-h-[calc(100vh-8rem)] sm:min-h-[calc(100vh-4rem)] flex flex-col justify-center py-12 sm:py-16';
+  'scroll-mt-20 min-h-[calc(100dvh-8rem)] sm:min-h-[calc(100dvh-4rem)] flex flex-col justify-center py-12 sm:py-16';
 
 export default function Portfolio() {
   return (
     <div className="min-h-screen w-full">
       <TopBar />
       <SideRail />
-      <main className="container mx-auto px-3 lg:px-8 xl:px-12 pb-24 sm:pb-16">
+      <main className="container mx-auto px-3 lg:px-8 xl:px-12 pb-[calc(6rem+env(safe-area-inset-bottom))] sm:pb-16">
         <section id="about" className={SECTION_CLASS}>
           <About />
         </section>
