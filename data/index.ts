@@ -477,9 +477,10 @@ export const momentGroups: { title: Bi; icon: typeof Mountain; images: string[] 
   {
     title: { en: 'CEAMLS Summer 2025 Team', ne: 'CEAMLS ग्रीष्म २०२५ टोली' },
     icon: Users,
-    // ceamls-summer-2025-1.jpg is missing — was lost to a filesystem mixup
-    // and needs to be re-added, then added back to this array.
-    images: ['/journey/ceamls-summer-2025-2.jpg'],
+    images: [
+      '/journey/ceamls-summer-2025-1.jpg',
+      '/journey/ceamls-summer-2025-2.jpg',
+    ],
   },
   {
     title: { en: 'CEAMLS Summer 2026 Team', ne: 'CEAMLS ग्रीष्म २०२६ टोली' },
