@@ -401,8 +401,8 @@ export const timeline: {
   {
     year: { en: '2025', ne: '२०२५' },
     title: {
-      en: 'ReadAloud — Hackathon Win, NSEA',
-      ne: 'ReadAloud — ह्याकाथन विजय, NSEA',
+      en: 'NSEA Hackathon Winner',
+      ne: 'NSEA ह्याकाथन विजेता',
     },
     description: {
       en: 'Built ReadAloud with my team: an offline AI tool that turns a short reading sample into a full literacy report for teachers, with every AI call overridable by the teacher. Took first place at the NSEA hackathon.',
@@ -471,7 +471,15 @@ export const momentGroups: { title: Bi; icon: typeof Mountain; images: string[] 
     images: [
       '/journey/presidential-medal-1.jpg',
       '/journey/presidential-medal-2.jpg',
+      '/journey/presidential-medal-3.jpg',
     ],
+  },
+  {
+    title: { en: 'CEAMLS Summer 2025 Team', ne: 'CEAMLS ग्रीष्म २०२५ टोली' },
+    icon: Users,
+    // ceamls-summer-2025-1.jpg is missing — was lost to a filesystem mixup
+    // and needs to be re-added, then added back to this array.
+    images: ['/journey/ceamls-summer-2025-2.jpg'],
   },
   {
     title: { en: 'CEAMLS Summer 2026 Team', ne: 'CEAMLS ग्रीष्म २०२६ टोली' },
@@ -482,9 +490,12 @@ export const momentGroups: { title: Bi; icon: typeof Mountain; images: string[] 
     ],
   },
   {
-    title: { en: 'ReadAloud — Hackathon Win', ne: 'ReadAloud — ह्याकाथन विजय' },
+    title: { en: 'NSEA Hackathon Winner', ne: 'NSEA ह्याकाथन विजेता' },
     icon: Trophy,
-    images: ['/journey/readaloud-hackathon-win.jpg'],
+    images: [
+      '/journey/nsea-hackathon-winner-1.jpg',
+      '/journey/nsea-hackathon-winner-2.jpg',
+    ],
   },
   {
     title: {
@@ -501,7 +512,13 @@ export const momentGroups: { title: Bi; icon: typeof Mountain; images: string[] 
   {
     title: { en: 'Hiking & Friends', ne: 'हाइकिङ र साथीहरू' },
     icon: Mountain,
-    images: ['/journey/hiking-friends.jpg'],
+    images: [
+      '/journey/hiking-friends-1.jpg',
+      '/journey/hiking-friends-2.jpg',
+      '/journey/hiking-friends-3.jpg',
+      '/journey/hiking-friends-4.jpg',
+      '/journey/hiking-friends-5.jpg',
+    ],
   },
   {
     title: { en: 'Guitar Nights', ne: 'गितार साँझहरू' },
