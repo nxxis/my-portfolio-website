@@ -3,9 +3,11 @@
 import { cn } from '@/lib/utils';
 import { SECTIONS, SECTION_IDS } from './sections';
 import { useActiveSection } from '@/hooks/use-active-section';
+import { useLanguage } from './language-context';
 
 export function MobileNav() {
   const active = useActiveSection(SECTION_IDS);
+  const { lang } = useLanguage();
 
   return (
     <nav className="sm:hidden fixed bottom-0 left-0 right-0 w-full bg-card border-t border-border shadow-lg z-40">
@@ -23,10 +25,10 @@ export function MobileNav() {
                   ? 'border-primary text-primary'
                   : 'border-transparent text-muted-foreground hover:text-foreground'
               )}
-              aria-label={`Go to ${section.label} section`}
+              aria-label={`Go to ${section.label.en} section`}
             >
               <Icon size={16} />
-              <span>{section.label}</span>
+              <span>{section.label[lang]}</span>
             </a>
           );
         })}

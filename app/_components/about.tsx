@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import {
   Card,
@@ -11,8 +13,11 @@ import { skills } from '@/data';
 import Link from 'next/link';
 import Hero from './Hero';
 import Reveal from './reveal';
+import { useLanguage } from './language-context';
 
 export default function About() {
+  const { lang } = useLanguage();
+
   return (
     <>
       <Hero />
@@ -20,10 +25,10 @@ export default function About() {
       <div className="space-y-6">
         <div>
           <p className="text-xs font-medium tracking-widest text-primary uppercase mb-2">
-            01 — About
+            {lang === 'en' ? '01 — About' : '०१ — परिचय'}
           </p>
           <h2 className="text-2xl sm:text-3xl font-medium tracking-tight mb-2">
-            Bio
+            {lang === 'en' ? 'Bio' : 'जीवनी'}
           </h2>
         </div>
 
@@ -32,21 +37,14 @@ export default function About() {
             <Card>
               <CardContent className="p-4 sm:p-6 space-y-4">
                 <p className="text-muted-foreground leading-relaxed">
-                  Passionate ML + full-stack developer with 1.5+ years of iOS
-                  front-end experience (SwiftUI, UIKit) and backend expertise
-                  in Node.js (NestJS). I build interpretable, fair, and
-                  reliable AI for time-series and medical imaging, and turn
-                  it into scalable web and mobile products. My toolkit
-                  includes Python (TensorFlow, PyTorch, scikit-learn),
-                  MongoDB, GraphQL, and cloud technologies, with a strong
-                  focus on UX and performance.
+                  {lang === 'en'
+                    ? 'Passionate ML + full-stack developer with 1.5+ years of iOS front-end experience (SwiftUI, UIKit) and backend expertise in Node.js (NestJS). I build interpretable, fair, and reliable AI for time-series and medical imaging, and turn it into scalable web and mobile products. My toolkit includes Python (TensorFlow, PyTorch, scikit-learn), MongoDB, GraphQL, and cloud technologies, with a strong focus on UX and performance.'
+                    : 'म ML र full-stack विकासमा उत्साही छु, १.५+ वर्षको iOS फ्रन्ट-इन्ड अनुभव (SwiftUI, UIKit) र Node.js (NestJS) मा ब्याकइन्ड विशेषज्ञतासहित। म समय-श्रृंखला र मेडिकल इमेजिङका लागि व्याख्यायोग्य, निष्पक्ष, र भरपर्दो AI निर्माण गर्छु, र यसलाई स्केलेबल वेब र मोबाइल उत्पादनमा बदल्छु। मेरो टूलकिटमा Python (TensorFlow, PyTorch, scikit-learn), MongoDB, GraphQL, र क्लाउड टेक्नोलोजी समावेश छन्, UX र प्रदर्शनमा बलियो जोडका साथ।'}
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  When I’m not coding, I mentor students, organise tech and
-                  community events, write practical tech pieces, and explore
-                  the latest web technologies. Offline, you’ll find me
-                  hiking or trekking, out in nature with a camera, or
-                  playing guitar and singing.
+                  {lang === 'en'
+                    ? "When I'm not coding, I mentor students, organise tech and community events, write practical tech pieces, and explore the latest web technologies. Offline, you'll find me hiking or trekking, out in nature with a camera, or playing guitar and singing."
+                    : 'जब म कोडिङ गर्दिन, म विद्यार्थीहरूलाई मार्गदर्शन गर्छु, टेक र सामुदायिक कार्यक्रमहरू आयोजना गर्छु, व्यावहारिक टेक लेखहरू लेख्छु, र नयाँ वेब टेक्नोलोजीहरू अन्वेषण गर्छु। अफलाइन, तपाईंले मलाई हाइकिङ वा ट्रेकिङ गर्दै, क्यामेरा लिएर प्रकृतिमा, वा गितार बजाउँदै र गाउँदै भेट्टाउनुहुनेछ।'}
                 </p>
                 <div className="flex gap-3 sm:gap-0 sm:items-center flex-col sm:flex-row sm:space-x-4 text-sm text-muted-foreground">
                   <div className="flex items-center">
@@ -55,7 +53,7 @@ export default function About() {
                   </div>
                   <div className="flex items-center">
                     <Calendar className="w-4 h-4 mr-1" />
-                    Available for hire
+                    {lang === 'en' ? 'Available for hire' : 'काम गर्न उपलब्ध'}
                   </div>
                 </div>
 
@@ -69,7 +67,7 @@ export default function About() {
                     rel="noopener noreferrer"
                   >
                     <Download className="w-4 h-4 mr-2" />
-                    Download Resume
+                    {lang === 'en' ? 'Download Resume' : 'रिज्युमे डाउनलोड गर्नुहोस्'}
                   </Link>
                 </div>
               </CardContent>
@@ -80,10 +78,12 @@ export default function About() {
             <Card>
               <CardHeader>
                 <CardTitle className="text-xl">
-                  Skills & Technologies
+                  {lang === 'en' ? 'Skills & Technologies' : 'सीप र प्रविधिहरू'}
                 </CardTitle>
                 <CardDescription>
-                  Technologies I work with regularly
+                  {lang === 'en'
+                    ? 'Technologies I work with regularly'
+                    : 'मैले नियमित प्रयोग गर्ने प्रविधिहरू'}
                 </CardDescription>
               </CardHeader>
               <CardContent>

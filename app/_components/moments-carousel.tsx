@@ -11,26 +11,44 @@ import {
   type CarouselApi,
 } from '@/components/ui/carousel';
 import { momentGroups } from '@/data';
+import { useLanguage } from './language-context';
 
-const photos = momentGroups.flatMap((group) =>
-  group.images.map((src, i) => ({
-    src,
-    icon: group.icon,
-    caption:
-      group.images.length > 1
-        ? `${group.title} (${i + 1}/${group.images.length})`
-        : group.title,
-  }))
-);
+// Stable across renders — a fresh object/array reference here would make
+// embla think options changed and reinitialize, resetting the autoplay
+// timer every time the slide counter re-renders.
+const CAROUSEL_OPTS = { loop: true };
+const NO_PLUGINS: ReturnType<typeof Autoplay>[] = [];
 
 export default function MomentsCarousel() {
+  const { lang } = useLanguage();
+  const photos = React.useMemo(
+    () =>
+      momentGroups.flatMap((group) =>
+        group.images.map((src, i) => ({
+          src,
+          icon: group.icon,
+          caption:
+            group.images.length > 1
+              ? `${group.title[lang]} (${i + 1}/${group.images.length})`
+              : group.title[lang],
+        }))
+      ),
+    [lang]
+  );
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(1);
   const [count, setCount] = React.useState(0);
   const [autoplayEnabled, setAutoplayEnabled] = React.useState(false);
 
   const autoplay = React.useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true, stopOnMouseEnter: true })
+    // No stopOnMouseEnter: on a page you scroll through (not a dedicated
+    // gallery), the cursor naturally ends up resting over the carousel as
+    // it scrolls into view, which would otherwise pause it immediately.
+    Autoplay({ delay: 4000, stopOnInteraction: true })
+  );
+  const plugins = React.useMemo(
+    () => (autoplayEnabled ? [autoplay.current] : NO_PLUGINS),
+    [autoplayEnabled]
   );
 
   React.useEffect(() => {
@@ -50,8 +68,8 @@ export default function MomentsCarousel() {
     <div>
       <Carousel
         setApi={setApi}
-        opts={{ loop: true }}
-        plugins={autoplayEnabled ? [autoplay.current] : []}
+        opts={CAROUSEL_OPTS}
+        plugins={plugins}
         className="w-full"
       >
         <CarouselContent>

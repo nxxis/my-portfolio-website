@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from 'sonner';
 import { Analytics } from '@vercel/analytics/next';
 import PageLoader from './_components/page-loader';
+import { LanguageProvider } from './_components/language-context';
 
 const inter = Montserrat({ subsets: ['latin'] });
 
@@ -64,8 +65,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
-          <PageLoader />
+          <LanguageProvider>
+            {children}
+            <PageLoader />
+          </LanguageProvider>
           <Analytics />
           <Toaster richColors />
         </ThemeProvider>

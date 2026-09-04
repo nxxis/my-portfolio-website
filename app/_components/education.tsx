@@ -11,20 +11,25 @@ import {
 import { CheckCircle } from 'lucide-react';
 import { education } from '@/data';
 import Reveal from './reveal';
+import { useLanguage } from './language-context';
 
 export default function Education() {
+  const { lang } = useLanguage();
+
   return (
     <div className="space-y-6">
       {/* Section heading */}
       <div>
         <p className="text-xs font-medium tracking-widest text-primary uppercase mb-2">
-          04 — Academics
+          {lang === 'en' ? '04 — Academics' : '०४ — शैक्षिक योग्यता'}
         </p>
         <h2 className="text-2xl sm:text-3xl font-medium tracking-tight mb-2">
-          Education
+          {lang === 'en' ? 'Education' : 'शिक्षा'}
         </h2>
         <p className="text-muted-foreground text-sm">
-          My academic background and qualifications
+          {lang === 'en'
+            ? 'My academic background and qualifications'
+            : 'मेरो शैक्षिक पृष्ठभूमि र योग्यताहरू'}
         </p>
       </div>
 
@@ -37,7 +42,7 @@ export default function Education() {
                 <div className="flex justify-between flex-col sm:flex-row items-start gap-1">
                   <div>
                     <CardTitle className="text-lg font-medium">
-                      {edu.degree}
+                      {edu.degree[lang]}
                     </CardTitle>
                     <CardDescription className="text-lg font-medium text-primary">
                       {edu.institution}
@@ -51,17 +56,21 @@ export default function Education() {
               </CardHeader>
               <CardContent className="space-y-4">
                 {edu.description && (
-                  <p className="text-muted-foreground">{edu.description}</p>
+                  <p className="text-muted-foreground">
+                    {edu.description[lang]}
+                  </p>
                 )}
                 {edu.highlights && edu.highlights.length > 0 && (
                   <div>
-                    <h4 className="font-medium mb-2">Highlights:</h4>
+                    <h4 className="font-medium mb-2">
+                      {lang === 'en' ? 'Highlights:' : 'मुख्य कुराहरू:'}
+                    </h4>
                     <ul className="space-y-1">
                       {edu.highlights.map((highlight, i) => (
                         <li key={i} className="flex items-start space-x-2">
                           <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                           <span className="text-sm text-muted-foreground">
-                            {highlight}
+                            {highlight[lang]}
                           </span>
                         </li>
                       ))}

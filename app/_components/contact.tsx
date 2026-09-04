@@ -1,5 +1,6 @@
 'use client';
 import type React from 'react';
+import { useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -11,7 +12,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import mailFormSchema from '@/lib/validation/mail-form';
+import { getMailFormSchema } from '@/lib/validation/mail-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Send } from 'lucide-react';
 import { Spinner } from 'react-hot-spinner';
@@ -20,15 +21,18 @@ import { FormData } from '@/types/mail-form';
 import { toast } from 'sonner';
 import ContactCard from './ContactCard';
 import Reveal from './reveal';
+import { useLanguage } from './language-context';
 
 export default function Contact() {
+  const { lang } = useLanguage();
+  const schema = useMemo(() => getMailFormSchema(lang), [lang]);
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({
-    resolver: zodResolver(mailFormSchema),
+    resolver: zodResolver(schema),
   });
 
   // ✅ Static-friendly submit (no server). Opens the user's email client.
@@ -42,7 +46,11 @@ export default function Contact() {
     // Open default email client with prefilled content
     window.location.href = mailto;
 
-    toast.success('Opening your email client…');
+    toast.success(
+      lang === 'en'
+        ? 'Opening your email client…'
+        : 'तपाईंको इमेल क्लाइन्ट खुलिरहेको छ…'
+    );
     reset();
   };
 
@@ -52,14 +60,15 @@ export default function Contact() {
         <Reveal className="flex flex-col gap-10">
           <div className="text-left">
             <p className="text-xs font-medium tracking-widest text-primary uppercase mb-2">
-              07 — Get In Touch
+              {lang === 'en' ? '07 — Get In Touch' : '०७ — सम्पर्क गर्नुहोस्'}
             </p>
             <h2 className="text-2xl sm:text-3xl font-medium tracking-tight mb-2">
-              Let&apos;s Connect
+              {lang === 'en' ? "Let's Connect" : 'जोडिनुहोस्'}
             </h2>
             <p className="text-muted-foreground">
-              I&apos;m always interested in new opportunities and
-              collaborations
+              {lang === 'en'
+                ? "I'm always interested in new opportunities and collaborations"
+                : 'म सधैं नयाँ अवसर र सहकार्यमा रुचि राख्छु'}
             </p>
           </div>
           {/* left side */}
@@ -78,11 +87,12 @@ export default function Contact() {
           <Card>
             <CardHeader>
               <CardTitle className="font-medium text-xl">
-                Send me a message
+                {lang === 'en' ? 'Send me a message' : 'मलाई सन्देश पठाउनुहोस्'}
               </CardTitle>
               <CardDescription>
-                Fill out the form below and I&apos;ll get back to you as soon as
-                possible
+                {lang === 'en'
+                  ? "Fill out the form below and I'll get back to you as soon as possible"
+                  : 'तलको फारम भर्नुहोस्, म चाँडोभन्दा चाँडो जवाफ दिनेछु'}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -90,11 +100,11 @@ export default function Contact() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-muted-foreground">
-                      Name
+                      {lang === 'en' ? 'Name' : 'नाम'}
                     </Label>
                     <Input
                       id="name"
-                      placeholder="Your name"
+                      placeholder={lang === 'en' ? 'Your name' : 'तपाईंको नाम'}
                       {...register('name')}
                       aria-label="Your name"
                     />
@@ -106,7 +116,7 @@ export default function Contact() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-muted-foreground">
-                      Email
+                      {lang === 'en' ? 'Email' : 'इमेल'}
                     </Label>
                     <Input
                       id="email"
@@ -125,11 +135,13 @@ export default function Contact() {
 
                 <div className="space-y-2">
                   <Label htmlFor="subject" className="text-muted-foreground">
-                    Subject
+                    {lang === 'en' ? 'Subject' : 'विषय'}
                   </Label>
                   <Input
                     id="subject"
-                    placeholder="What's this about?"
+                    placeholder={
+                      lang === 'en' ? "What's this about?" : 'यो केको बारेमा हो?'
+                    }
                     {...register('subject')}
                     aria-label="Subject of your message"
                   />
@@ -142,11 +154,13 @@ export default function Contact() {
 
                 <div className="space-y-2">
                   <Label htmlFor="message" className="text-muted-foreground">
-                    Message
+                    {lang === 'en' ? 'Message' : 'सन्देश'}
                   </Label>
                   <Textarea
                     id="message"
-                    placeholder="Your message..."
+                    placeholder={
+                      lang === 'en' ? 'Your message...' : 'तपाईंको सन्देश...'
+                    }
                     rows={5}
                     {...register('message')}
                     aria-label="Your message"
@@ -160,7 +174,7 @@ export default function Contact() {
 
                 <Button type="submit" className="w-full">
                   <Send className="w-4 h-4 mr-2" />
-                  Send Message
+                  {lang === 'en' ? 'Send Message' : 'सन्देश पठाउनुहोस्'}
                 </Button>
               </form>
             </CardContent>

@@ -5,12 +5,15 @@ import Link from 'next/link';
 import { Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { LanguageToggle } from './language-toggle';
 import { cn } from '@/lib/utils';
 import { SECTIONS, SECTION_IDS } from './sections';
 import { useActiveSection } from '@/hooks/use-active-section';
+import { useLanguage } from './language-context';
 
 export default function TopBar() {
   const active = useActiveSection(SECTION_IDS);
+  const { lang } = useLanguage();
   const [hidden, setHidden] = useState(false);
   const lastY = useRef(0);
 
@@ -49,12 +52,13 @@ export default function TopBar() {
                       : 'border-transparent text-muted-foreground hover:text-foreground'
                   )}
                 >
-                  {section.label}
+                  {section.label[lang]}
                 </a>
               );
             })}
           </div>
           <div className="flex items-center gap-2 flex-shrink-0">
+            <LanguageToggle />
             <ThemeToggle />
             <Link
               href="https://github.com/nxxis"
@@ -64,7 +68,9 @@ export default function TopBar() {
             >
               <Button variant="outline" size="sm">
                 <Github className="w-4 h-4 sm:mr-1" />
-                <span className="hidden sm:inline">View GitHub</span>
+                <span className="hidden sm:inline">
+                  {lang === 'en' ? 'View GitHub' : 'GitHub हेर्नुहोस्'}
+                </span>
               </Button>
             </Link>
           </div>

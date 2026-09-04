@@ -5,9 +5,11 @@ import { cn } from '@/lib/utils';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
+import { useLanguage } from './language-context';
 
 export default function Hero() {
   const { resolvedTheme } = useTheme();
+  const { lang } = useLanguage();
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -65,13 +67,15 @@ export default function Hero() {
               <div className="size-1.5 sm:size-2.5 animate-pulse relative after:content-[''] after:absolute flex items-center justify-center after:h-full after:w-full after:bg-green-400 after:rounded-full after:animate-ping rounded-full bg-primary"></div>
             </h1>
             <p className="text-muted-foreground text-sm sm:text-lg mt-1">
-              Software Engineer &amp; Researcher
+              {lang === 'en'
+                ? 'Software Engineer & Researcher'
+                : 'सफ्टवेयर इन्जिनियर र अनुसन्धानकर्ता'}
             </p>
           </div>
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-xl">
-            I build interpretable AI for healthcare and turn it into
-            scalable, elegant products — from ML pipelines to production iOS
-            and web apps.
+            {lang === 'en'
+              ? 'I build interpretable AI for healthcare and turn it into scalable, elegant products — from ML pipelines to production iOS and web apps.'
+              : 'म स्वास्थ्यका लागि व्याख्यायोग्य AI निर्माण गर्छु र यसलाई स्केलेबल, सुरुचिपूर्ण उत्पादनहरूमा बदल्छु — ML pipeline देखि production iOS र वेब एपसम्म।'}
           </p>
 
           <div className="flex justify-start gap-2 items-center">
@@ -86,7 +90,7 @@ export default function Hero() {
                 size="sm"
                 className="rounded-full text-primary hover:bg-primary/70"
               >
-                Download Resume
+                {lang === 'en' ? 'Download Resume' : 'रिज्युमे डाउनलोड गर्नुहोस्'}
               </Button>
             </a>
             <a href="#contact" aria-label="Contact Me">
@@ -95,7 +99,7 @@ export default function Hero() {
                 size="sm"
                 className="rounded-full text-muted-foreground"
               >
-                Contact Me
+                {lang === 'en' ? 'Contact Me' : 'मलाई सम्पर्क गर्नुहोस्'}
               </Button>
             </a>
           </div>

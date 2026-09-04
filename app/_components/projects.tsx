@@ -16,22 +16,26 @@ import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import Reveal from './reveal';
+import { useLanguage } from './language-context';
 
 export default function Projects() {
   const { theme } = useTheme();
+  const { lang } = useLanguage();
 
   return (
     <>
       <div className="space-y-6">
         <div>
           <p className="text-xs font-medium tracking-widest text-primary uppercase mb-2">
-            06 — Work
+            {lang === 'en' ? '06 — Work' : '०६ — काम'}
           </p>
           <h2 className="text-2xl sm:text-3xl font-medium tracking-tight mb-2">
-            Featured Projects
+            {lang === 'en' ? 'Featured Projects' : 'प्रमुख परियोजनाहरू'}
           </h2>
           <p className="text-muted-foreground text-sm">
-            Some of my recent work and side projects
+            {lang === 'en'
+              ? 'Some of my recent work and side projects'
+              : 'मेरा केही हालैका काम र साइड परियोजनाहरू'}
           </p>
         </div>
 
@@ -41,7 +45,7 @@ export default function Projects() {
               <Card
                 className="overflow-hidden hover:bg-muted/60 transition-all duration-300 min-h-min flex flex-col sm:flex-row group p-2"
                 aria-label={`Project: ${project.title}, Description: ${
-                  project.description
+                  project.description[lang]
                 }, Technologies: ${project.tech.join(', ')}`}
               >
                 {/* <div className="sm:h-full  min-h-40 min-w-full sm:min-w-40 bg-muted rounded-sm max-w-min ">
@@ -94,7 +98,7 @@ export default function Projects() {
                       </div>
                     </CardTitle>
                     <CardDescription className="line-clamp-4">
-                      {project.description}
+                      {project.description[lang]}
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="px-2 sm:px-4 py-2">

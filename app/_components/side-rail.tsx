@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { SECTIONS, SECTION_IDS } from './sections';
 import { useActiveSection } from '@/hooks/use-active-section';
+import { useLanguage } from './language-context';
 
 const GLIMPSE_MS = 1400;
 
@@ -13,6 +14,7 @@ const GLIMPSE_MS = 1400;
 // into a quick-jump nav.
 export default function SideRail() {
   const active = useActiveSection(SECTION_IDS);
+  const { lang } = useLanguage();
   const [glimpseId, setGlimpseId] = useState<string | null>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | undefined>(
     undefined
@@ -37,7 +39,7 @@ export default function SideRail() {
             key={section.id}
             href={`#${section.id}`}
             className="flex items-center gap-3"
-            aria-label={`Go to ${section.label} section`}
+            aria-label={`Go to ${section.label.en} section`}
           >
             <span
               className={cn(
@@ -57,7 +59,7 @@ export default function SideRail() {
                 isActive ? 'text-primary' : 'text-muted-foreground'
               )}
             >
-              {section.label}
+              {section.label[lang]}
             </span>
           </a>
         );

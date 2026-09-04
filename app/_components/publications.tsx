@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import {
   Card,
@@ -10,19 +12,24 @@ import { BookOpen, ExternalLink } from 'lucide-react';
 import { publications } from '@/data';
 import Link from 'next/link';
 import Reveal from './reveal';
+import { useLanguage } from './language-context';
 
 export default function Publications() {
+  const { lang } = useLanguage();
+
   return (
     <div className="space-y-6">
       <div>
         <p className="text-xs font-medium tracking-widest text-primary uppercase mb-2">
-          05 — Research
+          {lang === 'en' ? '05 — Research' : '०५ — अनुसन्धान'}
         </p>
         <h2 className="text-2xl sm:text-3xl font-medium tracking-tight mb-2">
-          Publications
+          {lang === 'en' ? 'Publications' : 'प्रकाशनहरू'}
         </h2>
         <p className="text-muted-foreground text-sm">
-          Peer-reviewed research and work in progress
+          {lang === 'en'
+            ? 'Peer-reviewed research and work in progress'
+            : 'समकक्षी-समीक्षित अनुसन्धान र जारी कार्यहरू'}
         </p>
       </div>
 
@@ -58,9 +65,11 @@ export default function Publications() {
                   </div>
                   <div className="flex sm:flex-col items-center sm:items-end gap-2 flex-shrink-0">
                     <Badge
-                      variant={pub.status === 'Accepted' ? 'default' : 'outline'}
+                      variant={
+                        pub.status.en === 'Accepted' ? 'default' : 'outline'
+                      }
                     >
-                      {pub.status}
+                      {pub.status[lang]}
                     </Badge>
                     <span className="text-sm text-muted-foreground">
                       {pub.year}
